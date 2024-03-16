@@ -1,5 +1,5 @@
-package com.techmarket.jwt;
-import com.techmarket.utils.ZipUtils;
+package com.techmarket.api.jwt;
+import com.techmarket.api.utils.ZipUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
