@@ -1,4 +1,4 @@
-package com.techmarket.utils;
+package com.techmarket.api.utils;
 
 
 import lombok.extern.slf4j.Slf4j;
