@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -18,7 +19,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Account extends Auditable<String> {
-
+    @Id
+    @GenericGenerator(name = "idGenerator", strategy = "com.techmarket.api.service.id.IdGenerator")
+    @GeneratedValue(generator = "idGenerator")
+    private Long id;
     private int kind;
     private String username;
     private String phone;
