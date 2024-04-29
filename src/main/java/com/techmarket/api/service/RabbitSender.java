@@ -15,37 +15,37 @@ import java.util.Properties;
 public class RabbitSender {
   @Autowired
   private RabbitTemplate template;
+//
+//  @Autowired
+//  private RabbitAdmin rabbitAdmin;
 
-  @Autowired
-  private RabbitAdmin rabbitAdmin;
+//  public void send(String message, String queueName) {
+//    createQueueIfNotExist(queueName);
+//    if(message == null || StringUtils.isBlank(message)){
+//      log.info("-------> Can not send an empty or null message.");
+//      return;
+//    }
+//    template.convertAndSend(queueName, message);
+//    log.info(" [x] Sent '" + message + "', queueName: "+queueName);
+//  }
 
-  public void send(String message, String queueName) {
-    createQueueIfNotExist(queueName);
-    if(message == null || StringUtils.isBlank(message)){
-      log.info("-------> Can not send an empty or null message.");
-      return;
-    }
-    template.convertAndSend(queueName, message);
-    log.info(" [x] Sent '" + message + "', queueName: "+queueName);
-  }
-
-  public boolean isQueueExist(String queueName) {
-    Properties properties = rabbitAdmin.getQueueProperties(queueName);
-
-    return properties != null;
-  }
-
-  public void createQueueIfNotExist(String queueName) {
-    if(!isQueueExist(queueName)){
-      log.info("-------> Create queue name: " + queueName);
-      rabbitAdmin.declareQueue(new Queue(queueName));
-    }
-  }
-
-  public void removeQueue(String queueName){
-    if(isQueueExist(queueName)){
-      log.info("-------> Delete queue name: " + queueName);
-      rabbitAdmin.deleteQueue(queueName);
-    }
-  }
+//  public boolean isQueueExist(String queueName) {
+//    Properties properties = rabbitAdmin.getQueueProperties(queueName);
+//
+//    return properties != null;
+//  }
+//
+//  public void createQueueIfNotExist(String queueName) {
+//    if(!isQueueExist(queueName)){
+//      log.info("-------> Create queue name: " + queueName);
+//      rabbitAdmin.declareQueue(new Queue(queueName));
+//    }
+//  }
+//
+//  public void removeQueue(String queueName){
+//    if(isQueueExist(queueName)){
+//      log.info("-------> Delete queue name: " + queueName);
+//      rabbitAdmin.deleteQueue(queueName);
+//    }
+//  }
 }

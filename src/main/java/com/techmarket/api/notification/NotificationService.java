@@ -39,28 +39,28 @@ public class NotificationService {
         data.setMessage(message);
         data.setUserId(userId);
         data.setApp(appName);
-        handleSendMsg(data, NotificationConstant.BACKEND_POST_NOTIFICATION_CMD);
+//        handleSendMsg(data, NotificationConstant.BACKEND_POST_NOTIFICATION_CMD);
     }
 
-    private <T> void handleSendMsg(T data, String cmd) {
-        BaseSendMsgForm<T> form = new BaseSendMsgForm<>();
-        form.setApp(NotificationConstant.BACKEND_APP);
-        form.setCmd(cmd);
-        form.setData(data);
-
-        String msg;
-        try {
-            msg = objectMapper.writeValueAsString(form);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        // create queue if existed
-        rabbitMQService.createQueueIfNotExist(queueName);
-
-        // push msg
-        rabbitSender.send(msg, queueName);
-    }
+//    private <T> void handleSendMsg(T data, String cmd) {
+//        BaseSendMsgForm<T> form = new BaseSendMsgForm<>();
+//        form.setApp(NotificationConstant.BACKEND_APP);
+//        form.setCmd(cmd);
+//        form.setData(data);
+//
+//        String msg;
+//        try {
+//            msg = objectMapper.writeValueAsString(form);
+//        } catch (JsonProcessingException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        // create queue if existed
+//        rabbitMQService.createQueueIfNotExist(queueName);
+//
+//        // push msg
+//        rabbitSender.send(msg, queueName);
+//    }
     public Notification createNotification(Integer state , Integer kind){
 
         Notification notification = new Notification();

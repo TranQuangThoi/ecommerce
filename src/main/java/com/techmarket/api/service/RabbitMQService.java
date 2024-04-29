@@ -14,7 +14,7 @@ public class RabbitMQService{
   @Autowired
   RabbitSender rabbitSender;
 
-  public void createQueueIfNotExist(String queueName){
-    rabbitSender.createQueueIfNotExist(queueName);
-  }
+//  public void createQueueIfNotExist(String queueName){
+//    rabbitSender.createQueueIfNotExist(queueName);
+//  }
 }
